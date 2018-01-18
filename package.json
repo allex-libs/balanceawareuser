@@ -1,0 +1,22 @@
+{
+  "name": "allex_balanceawareuserlib",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allex-libs/balanceawareuser.git"
+  },
+  "keywords": [
+    "ecosystem:AllexJS"
+  ],
+  "author": "HERS Belgrade",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/allex-libs/balanceawareuser/issues"
+  },
+  "homepage": "https://github.com/allex-libs/balanceawareuser#readme"
+}
