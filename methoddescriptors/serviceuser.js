@@ -1,7 +1,10 @@
-module.exports = {
-  updateBalance: [{
-    title: 'New Balance',
-    type: 'integer'
-  }]
-};
+function createMethodDescriptors (templates) {
+  'use strict';
+  return {
+    updateBalance: templates.methodDescriptorUpdateBalance
+  };
+}
+
+
+module.exports = createMethodDescriptors;
 

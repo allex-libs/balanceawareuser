@@ -1,11 +1,12 @@
-function createServiceMixin (execlib) {
+function createServiceMixin (execlib, templates) {
   'use strict';
 
   var lib = execlib.lib;
 
   function BalanceAwareServiceMixin (msm) {
     this.msm = msm;
-    this.__hotel.getUserBalance(this.name).then(this.setBalance.bind(this));
+    templates.ctorBalanceSetterFunc(this, 'getUserBalance', 'setBalance');
+    //this.__hotel.getUserBalance(this.name).then(this.setBalance.bind(this));
   }
 
   BalanceAwareServiceMixin.prototype.destroy = function () {
@@ -20,9 +21,7 @@ function createServiceMixin (execlib) {
     );
   };
 
-  BalanceAwareServiceMixin.prototype.setBalance = function (balanceinteger) {
-    this.state.set('balance', this.msm ? this.msm.fromMoney(balanceinteger) : balanceinteger);
-  };
+  BalanceAwareServiceMixin.prototype.setBalance = templates.serviceBalanceAwareFunc('balance');
 
   return BalanceAwareServiceMixin;
 }

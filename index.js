@@ -1,13 +1,16 @@
 function createLib (execlib) {
   'use strict';
 
+  var templates = require('./templatecreator')(execlib);
+
   return {
-    servicemixin: require('./servicemixincreator')(execlib),
+    templates: templates,
+    servicemixin: require('./servicemixincreator')(execlib, templates),
     users: {
-      serviceusermixin: require('./serviceusermixincreator')(execlib)
+      serviceusermixin: require('./serviceusermixincreator')(execlib, templates)
     },
     methoddescriptors: {
-      serviceuser: require('./methoddescriptors/serviceuser')
+      serviceuser: require('./methoddescriptors/serviceuser')(templates)
     }
   };
 }
